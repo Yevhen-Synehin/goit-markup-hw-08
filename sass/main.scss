@@ -1,0 +1,28 @@
+@import './utils/variables';
+@import './utils/hidden';
+@import './utils/reset';
+@import './utils/mixines';
+@import './utils/placeholders';
+
+//Common components
+
+@import './components/container';
+@import './components/btn';
+@import './components/chapter-title';
+@import './components/modal-window';
+
+// Components of index page
+
+@import './components/header';
+@import './components/mob-menu';
+@import './components/hero';
+@import './components/supremacy';
+@import './components/activities';
+@import './components/team';
+@import './components/clients';
+@import './components/footer';
+
+//Components of portfolio page
+
+@import './components/projects-filter';
+@import './components/projects';

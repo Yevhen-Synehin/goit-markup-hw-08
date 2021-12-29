@@ -1,0 +1,162 @@
+.backdrop{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 609px;
+    background: var(--light-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transform: scale(1) rotate(0) translate(-50%, -50%);
+    transition: transform 300ms;
+    padding: 40px;
+    .backdrop.is-hidden &{
+      transform: scale(.1) rotate(-45deg) translate(0.5vw, 0.5vh);
+    };
+    @media screen and (min-width: $desktop) {
+      width: 528px;
+      height: 581px;
+    };
+  }
+  .modal__close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 8px;
+    top: 8px;
+    background-color: var(--light-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: #000;
+    cursor: pointer;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover, &:focus{
+    fill: var(--logo-color);
+  }
+  }
+  .is-hidden{
+    visibility: hidden;
+    opacity: 0%;
+    pointer-events: none;
+  }
+  .modal__title{
+    font-weight: 700;
+    @include font(20px, 1.5, 0.03em);
+    text-align: center;
+    color: var(--chapter-color);
+    margin-bottom: 12px;
+    @media screen and (max-width: 1199px) {
+      height: 60px;
+    };
+    @media screen and (min-width: $desktop) {
+      line-height: 1.15;
+    }
+  }
+  .modal__label{
+    display: block;
+    font-weight: 500;
+    @include font(12px, 1.17, 0.01em);
+    color: var(--description-color);
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  .modal__icon-container{
+    position: relative;
+  }
+  .modal__icon{
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    .modal__input:focus + &{
+      fill: var(--logo-color);
+    }
+  }
+  .modal__input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 12px 12px 42px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:focus, &:active{
+    outline: none;
+    border-color: var(--logo-color);
+  }
+  }
+  .modal__comment{
+    resize: none;
+    height: 120px;
+    vertical-align: top;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 16px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 20px;
+    &::placeholder{
+      font-weight: 500;
+      @include font(14px, 1.14, 0.01em);
+      color: rgba(117, 117, 117, 0.5);
+    };
+    &:active, &:focus{
+      outline: none;
+      border-color: var(--logo-color);
+    }
+  }
+  .modal__link{
+    color: var(--logo-color);
+    margin-left: 3px;
+  }
+  .modal__check-text{
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    @include font(12px, 1.17, 0.03em);
+    color: var(--description-color);
+    @media screen and (min-width: $desktop){
+      @include font(14px, 1.71, 0.03em);
+    };
+    &::before{
+      content: '';
+      display: block;
+      width: 16px;
+      height: 15px;
+      margin-right: 8px;
+      border: 2px solid var(--chapter-color);
+      border-radius: 2px;
+      transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    };
+    .modal__check:checked + &::before{
+      background-image: url(../images/icon-check.svg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: none;
+      }
+  }
+  .btn--center-position {
+    @extend %btn;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px auto 0px;
+    padding: 10px 55px;
+  }

@@ -1,0 +1,26 @@
+.section--without-top-padding {
+    padding-top: 0px;
+    display: none;
+  @media screen and (min-width: $desktop) {
+    display: flex;
+  }
+  }
+  .activities {
+    display: flex;
+    justify-content: space-between;
+  }
+  .activities__thumb{
+    position: relative;
+  }
+  .activities__name{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 27px 0px;
+    font-weight: 700;
+    @include font(14px, 1.14, 0.03em);
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--light-color);
+    background-color: rgba(47, 48, 58, 0.8);;
+  }
